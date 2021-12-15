@@ -5,6 +5,7 @@
 
 void yyerror(const char *s);
 extern int yylex (void);
+
 typedef struct{
     int codigo;
     float valor;
@@ -82,7 +83,7 @@ Expression: Expression PLUS Expression	{ $$ = $1 + $3;};
         if(p)
             $$ = p->valor;
         else
-            printf("\nVariavel nao definida!\n");
+            printf("\nVariavel nao encontrada!\n");
 	}
 /* NÚMERO */
 	| NUM	    { $$ = $1; };

@@ -70,6 +70,7 @@
 
 void yyerror(const char *s);
 extern int yylex (void);
+
 typedef struct{
     int codigo;
     float valor;
@@ -79,7 +80,7 @@ extern void inserir(int var, float valor);
 extern Simbolos* buscar(int chave);
 
 
-#line 83 "calc.tab.c" /* yacc.c:339  */
+#line 84 "calc.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -146,12 +147,12 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 18 "calc.y" /* yacc.c:355  */
+#line 19 "calc.y" /* yacc.c:355  */
 
 	double digit;
 	float var;
 
-#line 155 "calc.tab.c" /* yacc.c:355  */
+#line 156 "calc.tab.c" /* yacc.c:355  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -168,7 +169,7 @@ int yyparse (void);
 
 /* Copy the second part of user declarations.  */
 
-#line 172 "calc.tab.c" /* yacc.c:358  */
+#line 173 "calc.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -468,9 +469,9 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    45,    45,    46,    49,    50,    52,    53,    54,    55,
-      56,    57,    58,    60,    61,    62,    63,    64,    66,    67,
-      68,    69,    70,    72,    74,    77,    88
+       0,    46,    46,    47,    50,    51,    53,    54,    55,    56,
+      57,    58,    59,    61,    62,    63,    64,    65,    67,    68,
+      69,    70,    71,    73,    75,    78,    89
 };
 #endif
 
@@ -1290,133 +1291,133 @@ yyreduce:
   switch (yyn)
     {
         case 4:
-#line 49 "calc.y" /* yacc.c:1646  */
+#line 50 "calc.y" /* yacc.c:1646  */
     { inserir((yyvsp[-2].var), (yyvsp[0].digit)); }
-#line 1296 "calc.tab.c" /* yacc.c:1646  */
+#line 1297 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 5:
-#line 50 "calc.y" /* yacc.c:1646  */
+#line 51 "calc.y" /* yacc.c:1646  */
     { printf("Resultado: %f\n", (yyvsp[0].digit)); }
-#line 1302 "calc.tab.c" /* yacc.c:1646  */
+#line 1303 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
-#line 52 "calc.y" /* yacc.c:1646  */
+#line 53 "calc.y" /* yacc.c:1646  */
     { (yyval.digit) = (yyvsp[-2].digit) + (yyvsp[0].digit);}
-#line 1308 "calc.tab.c" /* yacc.c:1646  */
+#line 1309 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
-#line 53 "calc.y" /* yacc.c:1646  */
+#line 54 "calc.y" /* yacc.c:1646  */
     { (yyval.digit) = (yyvsp[-2].digit) - (yyvsp[0].digit); printf("%.1f - %.1f\n", (yyvsp[-2].digit), (yyvsp[0].digit));}
-#line 1314 "calc.tab.c" /* yacc.c:1646  */
+#line 1315 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 8:
-#line 54 "calc.y" /* yacc.c:1646  */
+#line 55 "calc.y" /* yacc.c:1646  */
     { (yyval.digit) = (yyvsp[-2].digit) * (yyvsp[0].digit); printf("%.1f * %.1f\n", (yyvsp[-2].digit), (yyvsp[0].digit));}
-#line 1320 "calc.tab.c" /* yacc.c:1646  */
+#line 1321 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 9:
-#line 55 "calc.y" /* yacc.c:1646  */
+#line 56 "calc.y" /* yacc.c:1646  */
     { (yyval.digit) = (yyvsp[-2].digit) / (yyvsp[0].digit); printf("%.1f / %.1f\n", (yyvsp[-2].digit), (yyvsp[0].digit));}
-#line 1326 "calc.tab.c" /* yacc.c:1646  */
+#line 1327 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 10:
-#line 56 "calc.y" /* yacc.c:1646  */
+#line 57 "calc.y" /* yacc.c:1646  */
     { (yyval.digit) = pow((yyvsp[-2].digit), (yyvsp[0].digit)); printf("%.1f ^ %.1f\n", (yyvsp[-2].digit), (yyvsp[0].digit));}
-#line 1332 "calc.tab.c" /* yacc.c:1646  */
+#line 1333 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 11:
-#line 57 "calc.y" /* yacc.c:1646  */
+#line 58 "calc.y" /* yacc.c:1646  */
     { (yyval.digit) = log10((yyvsp[0].digit)); printf("log10(%f)\n", (yyvsp[0].digit)); }
-#line 1338 "calc.tab.c" /* yacc.c:1646  */
+#line 1339 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 12:
-#line 58 "calc.y" /* yacc.c:1646  */
+#line 59 "calc.y" /* yacc.c:1646  */
     { (yyval.digit) = sqrt((yyvsp[0].digit)); printf("sqrt(%f)\n", (yyvsp[0].digit)); }
-#line 1344 "calc.tab.c" /* yacc.c:1646  */
+#line 1345 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 13:
-#line 60 "calc.y" /* yacc.c:1646  */
+#line 61 "calc.y" /* yacc.c:1646  */
     { (yyval.digit) = (yyvsp[-2].digit) && (yyvsp[0].digit); printf("%f && %f\n", (yyvsp[-2].digit), (yyvsp[0].digit)); }
-#line 1350 "calc.tab.c" /* yacc.c:1646  */
+#line 1351 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 14:
-#line 61 "calc.y" /* yacc.c:1646  */
+#line 62 "calc.y" /* yacc.c:1646  */
     { (yyval.digit) = (yyvsp[-2].digit) || (yyvsp[0].digit); printf("%f || %f\n", (yyvsp[-2].digit), (yyvsp[0].digit)); }
-#line 1356 "calc.tab.c" /* yacc.c:1646  */
+#line 1357 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 15:
-#line 62 "calc.y" /* yacc.c:1646  */
+#line 63 "calc.y" /* yacc.c:1646  */
     { (yyval.digit) = !(yyvsp[-2].digit) && (yyvsp[0].digit) || (yyvsp[-2].digit) && !(yyvsp[0].digit); printf("%f # %f\n", (yyvsp[-2].digit), (yyvsp[0].digit)); }
-#line 1362 "calc.tab.c" /* yacc.c:1646  */
+#line 1363 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 16:
-#line 63 "calc.y" /* yacc.c:1646  */
+#line 64 "calc.y" /* yacc.c:1646  */
     { (yyval.digit) = !(yyvsp[0].digit); printf("!%f\n", (yyvsp[0].digit)); }
-#line 1368 "calc.tab.c" /* yacc.c:1646  */
+#line 1369 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 17:
-#line 64 "calc.y" /* yacc.c:1646  */
+#line 65 "calc.y" /* yacc.c:1646  */
     { (yyval.digit) = - (yyvsp[0].digit); }
-#line 1374 "calc.tab.c" /* yacc.c:1646  */
+#line 1375 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 18:
-#line 66 "calc.y" /* yacc.c:1646  */
+#line 67 "calc.y" /* yacc.c:1646  */
     { (yyval.digit) = (yyvsp[-2].digit) > (yyvsp[0].digit); printf("%.1f > %.1f\n", (yyvsp[-2].digit), (yyvsp[0].digit));}
-#line 1380 "calc.tab.c" /* yacc.c:1646  */
+#line 1381 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 19:
-#line 67 "calc.y" /* yacc.c:1646  */
+#line 68 "calc.y" /* yacc.c:1646  */
     { (yyval.digit) = (yyvsp[-2].digit) < (yyvsp[0].digit); printf("%.1f < %.1f\n", (yyvsp[-2].digit), (yyvsp[0].digit));}
-#line 1386 "calc.tab.c" /* yacc.c:1646  */
+#line 1387 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 20:
-#line 68 "calc.y" /* yacc.c:1646  */
+#line 69 "calc.y" /* yacc.c:1646  */
     { (yyval.digit) = (yyvsp[-2].digit) <= (yyvsp[0].digit); printf("%.1f <= %.1f\n", (yyvsp[-2].digit), (yyvsp[0].digit));}
-#line 1392 "calc.tab.c" /* yacc.c:1646  */
+#line 1393 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 21:
-#line 69 "calc.y" /* yacc.c:1646  */
+#line 70 "calc.y" /* yacc.c:1646  */
     { (yyval.digit) = (yyvsp[-2].digit) >= (yyvsp[0].digit); printf("%.1f >= %.1f\n", (yyvsp[-2].digit), (yyvsp[0].digit));}
-#line 1398 "calc.tab.c" /* yacc.c:1646  */
+#line 1399 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 22:
-#line 70 "calc.y" /* yacc.c:1646  */
+#line 71 "calc.y" /* yacc.c:1646  */
     { (yyval.digit) = (yyvsp[-2].digit) != (yyvsp[0].digit); printf("%.1f != %.1f\n", (yyvsp[-2].digit), (yyvsp[0].digit));}
-#line 1404 "calc.tab.c" /* yacc.c:1646  */
+#line 1405 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 23:
-#line 72 "calc.y" /* yacc.c:1646  */
+#line 73 "calc.y" /* yacc.c:1646  */
     { (yyval.digit) = (yyvsp[-2].digit) == (yyvsp[0].digit); printf("%.1f == %.1f\n", (yyvsp[-2].digit), (yyvsp[0].digit));}
-#line 1410 "calc.tab.c" /* yacc.c:1646  */
+#line 1411 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 24:
-#line 74 "calc.y" /* yacc.c:1646  */
+#line 75 "calc.y" /* yacc.c:1646  */
     { (yyval.digit) = (yyvsp[-1].digit); }
-#line 1416 "calc.tab.c" /* yacc.c:1646  */
+#line 1417 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 25:
-#line 77 "calc.y" /* yacc.c:1646  */
+#line 78 "calc.y" /* yacc.c:1646  */
     {  
 		Simbolos *p;
 		
@@ -1425,19 +1426,19 @@ yyreduce:
         if(p)
             (yyval.digit) = p->valor;
         else
-            printf("\nVariavel nao definida!\n");
+            printf("\nVariavel nao encontrada!\n");
 	}
-#line 1431 "calc.tab.c" /* yacc.c:1646  */
+#line 1432 "calc.tab.c" /* yacc.c:1646  */
     break;
 
   case 26:
-#line 88 "calc.y" /* yacc.c:1646  */
+#line 89 "calc.y" /* yacc.c:1646  */
     { (yyval.digit) = (yyvsp[0].digit); }
-#line 1437 "calc.tab.c" /* yacc.c:1646  */
+#line 1438 "calc.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1441 "calc.tab.c" /* yacc.c:1646  */
+#line 1442 "calc.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1665,7 +1666,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 90 "calc.y" /* yacc.c:1906  */
+#line 91 "calc.y" /* yacc.c:1906  */
 
 
 int main()

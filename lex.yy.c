@@ -501,9 +501,10 @@ char *yytext;
 #include <stdlib.h>
 #include "calc.tab.h"
 #define M 100
-extern int insertTablePosition(int var, char *var2);
+extern int convertVarToNumber(char *var);
 
 int inicializado = 1;
+// Struct com código hash e o valor 
 typedef struct{
     int codigo;
     float valor;
@@ -512,18 +513,19 @@ typedef struct{
 // Tabela hash do tipo Simbolos
 Simbolos tabelaHash[M];
 
+// Inicializa a tabela com todas posições iguais a -1
 extern void inicializarTabela(){
     int i;
     for(i = 0; i < M; i++)
         tabelaHash[i].codigo = -1;
 }
 
-// função de espalhamento (resto da divisão da chave por M)
+// Função de espalhamento (resto da divisão da chave por M)
 extern int gerarCodigoHash(int chave){
     return chave % M;
 }
 
-// função para ler e retornar uma pessoa
+// Função para ler e retornar um item armazenado
 extern Simbolos lerSimb(int var, float valor){
     Simbolos p;
     p.codigo = var;
@@ -531,13 +533,14 @@ extern Simbolos lerSimb(int var, float valor){
     return p;
 }
 
-// inserir uma pessoa na tabela
+// inserir uma item na tabela
 extern void inserir(int var, float valor){
     Simbolos simb = lerSimb(var, valor);
     int indice = gerarCodigoHash(simb.codigo);
     tabelaHash[indice] = simb;
 }
 
+// Buscar um item na tabela
 extern Simbolos* buscar(int chave){
     int indice = gerarCodigoHash(chave);
     while(tabelaHash[indice].codigo != -1){
@@ -549,7 +552,7 @@ extern Simbolos* buscar(int chave){
     return NULL;
 }
 
-#line 553 "lex.yy.c"
+#line 556 "lex.yy.c"
 /* DEFINIÇÕES  */
 /* Espaço em banco */
 /* Digito */
@@ -558,7 +561,7 @@ extern Simbolos* buscar(int chave){
 /* Número Real */
 /* Variável */
 /* REGRAS */
-#line 562 "lex.yy.c"
+#line 565 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -775,10 +778,10 @@ YY_DECL
 		}
 
 	{
-#line 77 "calc.l"
+#line 80 "calc.l"
 
 
-#line 782 "lex.yy.c"
+#line 785 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -847,12 +850,12 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 79 "calc.l"
+#line 82 "calc.l"
 { }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 80 "calc.l"
+#line 83 "calc.l"
 { 
 
     yylval.digit = atof(yytext); 
@@ -861,125 +864,125 @@ YY_RULE_SETUP
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 86 "calc.l"
+#line 89 "calc.l"
 { 
 
-    insertTablePosition(0, yytext);
+    convertVarToNumber(yytext);
     return VAR;
 }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 92 "calc.l"
+#line 95 "calc.l"
 return PLUS; 
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 93 "calc.l"
+#line 96 "calc.l"
 return MINUS; 
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 94 "calc.l"
+#line 97 "calc.l"
 return TIMES; 
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 95 "calc.l"
+#line 98 "calc.l"
 return DIVIDE; 
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 97 "calc.l"
+#line 100 "calc.l"
 return LOG; 
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 98 "calc.l"
+#line 101 "calc.l"
 return RAIZ;
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 100 "calc.l"
+#line 103 "calc.l"
 return POW; 
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 102 "calc.l"
+#line 105 "calc.l"
 return AND; 
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 103 "calc.l"
+#line 106 "calc.l"
 return OR; 
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 104 "calc.l"
+#line 107 "calc.l"
 return XOR; 
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 105 "calc.l"
+#line 108 "calc.l"
 return NEG;
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 107 "calc.l"
+#line 110 "calc.l"
 return MAIOR; 
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 108 "calc.l"
+#line 111 "calc.l"
 return MENOR; 
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 109 "calc.l"
+#line 112 "calc.l"
 return MAIORIGUAL; 
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 110 "calc.l"
+#line 113 "calc.l"
 return MENORIGUAL; 
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 111 "calc.l"
+#line 114 "calc.l"
 return DIFERENTE; 
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 113 "calc.l"
+#line 116 "calc.l"
 return IGUAL; 
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 115 "calc.l"
+#line 118 "calc.l"
 return ATRIBUICAO; 
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 117 "calc.l"
+#line 120 "calc.l"
 return LEFT; 
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 118 "calc.l"
+#line 121 "calc.l"
 return RIGHT; 
 	YY_BREAK
 case 24:
 /* rule 24 can match eol */
 YY_RULE_SETUP
-#line 120 "calc.l"
+#line 123 "calc.l"
 return END; 
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 121 "calc.l"
+#line 124 "calc.l"
 ECHO;
 	YY_BREAK
-#line 983 "lex.yy.c"
+#line 986 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1996,10 +1999,10 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 121 "calc.l"
+#line 124 "calc.l"
 
 
-int insertTablePosition(int var, char *var2){
+int convertVarToNumber(char *var){
     Simbolos *p;
     /* Impedindo que a tabela seja iniciada mais de uma vez */
     if (inicializado == 1) {
@@ -2012,25 +2015,25 @@ int insertTablePosition(int var, char *var2){
     int variacao = 0;
 
     while(1){
-        if (var2[cont] >= 65 && var2[cont] <= 90){ //Verifica se está no intervalo das maiúsculas
+        if (var[cont] >= 65 && var[cont] <= 90){ //Verifica se está no intervalo das maiúsculas
             if (variacao == 0){ // Se for 0 multiplica o valor ascii do símbolo atual
-                codigoVar = codigoVar * var2[cont];
+                codigoVar = codigoVar * var[cont];
                 cont = cont + 1;
                 
             }else{// Não sendo 0 divide o valor ascii do símbolo atual
-                codigoVar = codigoVar / var2[cont];
+                codigoVar = codigoVar / var[cont];
                 cont = cont + 1;
             }
             // Faz a troca entre multiplicação e divisão
             variacao = !variacao;
 
-        }else if (var2[cont] >= 97 && var2[cont] <= 122){ //Verifica se está no intervalo das minúsculas
+        }else if (var[cont] >= 97 && var[cont] <= 122){ //Verifica se está no intervalo das minúsculas
             if (variacao == 0){ // Se for 0 multiplica o valor ascii do símbolo atual
-                codigoVar = codigoVar * var2[cont];
+                codigoVar = codigoVar * var[cont];
                 cont = cont + 1;
                 
             }else{// Não sendo 0 divide o valor ascii do símbolo atual
-                codigoVar = codigoVar / var2[cont];
+                codigoVar = codigoVar / var[cont];
                 cont = cont + 1;
             }
             // Faz a troca entre multiplicação e divisão

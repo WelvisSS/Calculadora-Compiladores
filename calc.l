@@ -4,9 +4,10 @@
 #include <stdlib.h>
 #include "calc.tab.h"
 #define M 100
-extern int insertTablePosition(int var, char *var2);
+extern int convertVarToNumber(char *var);
 
 int inicializado = 1;
+// Struct com código hash e o valor 
 typedef struct{
     int codigo;
     float valor;
@@ -87,7 +88,7 @@ variaveis {caracteres}+
 
 {variaveis} { 
 
-    insertTablePosition(0, yytext);
+    convertVarToNumber(yytext);
     return VAR;
 }
 
@@ -122,7 +123,7 @@ variaveis {caracteres}+
 "\n" return END; 
 %%
 
-int insertTablePosition(int var, char *var2){
+int convertVarToNumber(char *var){
     Simbolos *p;
     /* Impedindo que a tabela seja iniciada mais de uma vez */
     if (inicializado == 1) {
@@ -135,25 +136,25 @@ int insertTablePosition(int var, char *var2){
     int variacao = 0;
 
     while(1){
-        if (var2[cont] >= 65 && var2[cont] <= 90){ //Verifica se está no intervalo das maiúsculas
+        if (var[cont] >= 65 && var[cont] <= 90){ //Verifica se está no intervalo das maiúsculas
             if (variacao == 0){ // Se for 0 multiplica o valor ascii do símbolo atual
-                codigoVar = codigoVar * var2[cont];
+                codigoVar = codigoVar * var[cont];
                 cont = cont + 1;
                 
             }else{// Não sendo 0 divide o valor ascii do símbolo atual
-                codigoVar = codigoVar / var2[cont];
+                codigoVar = codigoVar / var[cont];
                 cont = cont + 1;
             }
             // Faz a troca entre multiplicação e divisão
             variacao = !variacao;
 
-        }else if (var2[cont] >= 97 && var2[cont] <= 122){ //Verifica se está no intervalo das minúsculas
+        }else if (var[cont] >= 97 && var[cont] <= 122){ //Verifica se está no intervalo das minúsculas
             if (variacao == 0){ // Se for 0 multiplica o valor ascii do símbolo atual
-                codigoVar = codigoVar * var2[cont];
+                codigoVar = codigoVar * var[cont];
                 cont = cont + 1;
                 
             }else{// Não sendo 0 divide o valor ascii do símbolo atual
-                codigoVar = codigoVar / var2[cont];
+                codigoVar = codigoVar / var[cont];
                 cont = cont + 1;
             }
             // Faz a troca entre multiplicação e divisão

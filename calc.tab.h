@@ -77,7 +77,7 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 18 "calc.y" /* yacc.c:1909  */
+#line 19 "calc.y" /* yacc.c:1909  */
 
 	double digit;
 	float var;
