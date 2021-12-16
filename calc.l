@@ -2,14 +2,16 @@
 /* analisador léxico */
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "calc.tab.h"
-#define M 100
-extern int convertVarToNumber(char *var);
 
-int inicializado = 1;
-// Struct com código hash e o valor 
+#define M 10000
+
+int inicializado = 0;
+// Struct da tabela hash 
 typedef struct{
     int codigo;
+    char *identificador;
     float valor;
 }Simbolos;
 
@@ -22,35 +24,83 @@ extern void inicializarTabela(){
     for(i = 0; i < M; i++)
         tabelaHash[i].codigo = -1;
 }
+// Inicializa a tabela apenas uma vez, impossibilitando perca de dados
+extern void init(){
+    if (inicializado == 0){ 
+        inicializarTabela();
+        inicializado = 1;
+    }
+}
 
 // Função de espalhamento (resto da divisão da chave por M)
 extern int gerarCodigoHash(int chave){
     return chave % M;
 }
-
-// Função para ler e retornar um item armazenado
-extern Simbolos lerSimb(int var, float valor){
-    Simbolos p;
-    p.codigo = var;
-    p.valor = valor;
-    return p;
+// Converte a variável em um valor
+extern int stringToNumber(char *var){
+    int tam = strlen(var);
+    int codigo = 0;
+    for (int i=0; i<tam; i++)
+      codigo = codigo + var[i]%M;
+    return codigo;
 }
+// Converte o yytext antes que ele mude o valor
+char * strcpy(char *var){
+
+    char * String = (char *) malloc (sizeof(char)*(strlen(var)+1));
+
+    for (int i = 0; i < strlen(var); i++) String[i] = var[i];
+
+    return yylval.var = String;
+}
+
+// Verifica se a variável armazenada é igual a variável pesquisada
+extern int iguais(char *a, char *b){
+    int lenA = strlen(a);
+    int lenB = strlen(b);
+    int iguais = 1;
+    if (lenA == lenB){
+        for (int i = 0; i < lenA; i++){
+            if (a[i] != b[i]){
+                iguais = 0;
+                break;
+            }
+        }
+        return iguais;
+    }else{
+        return 0;
+    }
+} 
 
 // inserir uma item na tabela
-extern void inserir(int var, float valor){
-    Simbolos simb = lerSimb(var, valor);
-    int indice = gerarCodigoHash(simb.codigo);
-    tabelaHash[indice] = simb;
+extern void inserir(char *n, int m){
+    Simbolos p;
+    p.codigo = stringToNumber(n);
+    p.identificador = n;
+    p.valor = m;
+    int indice = gerarCodigoHash(p.codigo);
+    while(tabelaHash[indice].codigo != -1){
+        if (iguais(tabelaHash[indice].identificador, n) == 1){
+            break;
+        }
+        indice = gerarCodigoHash(indice + 1);
+    }
+    tabelaHash[indice] = p;
 }
 
+
 // Buscar um item na tabela
-extern Simbolos* buscar(int chave){
+extern Simbolos* buscar(char *n){
+    
+    int chave = stringToNumber(n);
     int indice = gerarCodigoHash(chave);
     while(tabelaHash[indice].codigo != -1){
-        if(tabelaHash[indice].codigo == chave)
+        if(tabelaHash[indice].codigo == chave && iguais(tabelaHash[indice].identificador, n) == 1){
             return &tabelaHash[indice];
-        else
+        }
+        else{
             indice = gerarCodigoHash(indice + 1);
+        }
     }
     return NULL;
 }
@@ -74,21 +124,24 @@ exponent [eE][+-]?{integer}
 real {integer}("."{integer})?{exponent}?
 /* Variável */
 caracteres [a-zA-Z]
-variaveis {caracteres}+
+
+varnum {caracteres}*{digit}*
+
+variavel {caracteres}+{varnum}*
 
 /* REGRAS */
 %%
 
 {white} { }
 {real}  { 
-
+    
     yylval.digit = atof(yytext); 
     return NUM; 
 }
 
-{variaveis} { 
-
-    convertVarToNumber(yytext);
+{variavel} { 
+    init();
+    strcpy(yytext);
     return VAR;
 }
 
@@ -122,52 +175,3 @@ variaveis {caracteres}+
 
 "\n" return END; 
 %%
-
-int convertVarToNumber(char *var){
-    Simbolos *p;
-    /* Impedindo que a tabela seja iniciada mais de uma vez */
-    if (inicializado == 1) {
-        inicializarTabela();
-        inicializado = 0;
-    };
-
-    int cont = 0;
-    float codigoVar = 1;
-    int variacao = 0;
-
-    while(1){
-        if (var[cont] >= 65 && var[cont] <= 90){ //Verifica se está no intervalo das maiúsculas
-            if (variacao == 0){ // Se for 0 multiplica o valor ascii do símbolo atual
-                codigoVar = codigoVar * var[cont];
-                cont = cont + 1;
-                
-            }else{// Não sendo 0 divide o valor ascii do símbolo atual
-                codigoVar = codigoVar / var[cont];
-                cont = cont + 1;
-            }
-            // Faz a troca entre multiplicação e divisão
-            variacao = !variacao;
-
-        }else if (var[cont] >= 97 && var[cont] <= 122){ //Verifica se está no intervalo das minúsculas
-            if (variacao == 0){ // Se for 0 multiplica o valor ascii do símbolo atual
-                codigoVar = codigoVar * var[cont];
-                cont = cont + 1;
-                
-            }else{// Não sendo 0 divide o valor ascii do símbolo atual
-                codigoVar = codigoVar / var[cont];
-                cont = cont + 1;
-            }
-            // Faz a troca entre multiplicação e divisão
-            variacao = !variacao;
-            
-        }else{ // Encerra o laço no fim da leitura da cadeia
-            break;
-        }
-         
-    };
-
-    yylval.var = codigoVar;
-    return yylval.var;
-    
-};
-

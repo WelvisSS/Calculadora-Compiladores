@@ -382,13 +382,13 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static const flex_int16_t yy_accept[45] =
+static const flex_int16_t yy_accept[47] =
     {   0,
         0,    0,   26,   25,    1,   24,   14,   13,   25,   22,
        23,    6,    4,    5,    7,    2,   16,   21,   15,    3,
        10,    3,    3,   25,    1,   19,   11,    0,    2,    0,
-       18,   20,   17,    3,    3,    3,   12,    2,    0,    2,
-        3,    3,    3,    0
+       18,   20,   17,    3,    3,    3,    3,   12,    2,    0,
+        2,    3,    3,    3,    3,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -426,52 +426,56 @@ static const YY_CHAR yy_ec[256] =
 static const YY_CHAR yy_meta[29] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    2,    2,    1,
+        1,    1,    1,    2,    1,    1,    1,    2,    2,    1,
         2,    2,    2,    2,    2,    2,    2,    1
     } ;
 
-static const flex_int16_t yy_base[46] =
+static const flex_int16_t yy_base[49] =
     {   0,
-        0,    0,   57,   58,   54,   58,   39,   58,   48,   58,
-       58,   58,   58,   58,   58,   17,   37,   36,   35,    0,
-       58,   27,   25,   20,   45,   58,   58,   32,   18,   24,
-       58,   58,   58,    0,   24,   18,   58,   25,   28,   27,
-        0,   13,    0,   58,   31
+        0,    0,   69,   70,   66,   70,   51,   70,   60,   70,
+       70,   70,   70,   70,   70,   17,   49,   48,   47,   48,
+       70,   16,   18,   33,   58,   70,   70,   44,   21,   27,
+       70,   70,   70,   43,   42,   29,   20,   70,   30,   41,
+       40,   39,   38,   32,   37,   70,   46,   45
     } ;
 
-static const flex_int16_t yy_def[46] =
+static const flex_int16_t yy_def[49] =
     {   0,
-       44,    1,   44,   44,   44,   44,   44,   44,   44,   44,
-       44,   44,   44,   44,   44,   44,   44,   44,   44,   45,
-       44,   45,   45,   44,   44,   44,   44,   44,   44,   44,
-       44,   44,   44,   45,   45,   45,   44,   44,   44,   44,
-       45,   45,   45,    0,   44
+       46,    1,   46,   46,   46,   46,   46,   46,   46,   46,
+       46,   46,   46,   46,   46,   46,   46,   46,   46,   47,
+       46,   47,   47,   46,   46,   46,   46,   46,   46,   46,
+       46,   46,   46,   48,   47,   47,   47,   46,   46,   46,
+       46,   48,   47,   47,   47,    0,   46,   46
     } ;
 
-static const flex_int16_t yy_nxt[87] =
+static const flex_int16_t yy_nxt[99] =
     {   0,
         4,    5,    6,    7,    8,    9,   10,   11,   12,   13,
        14,    4,   15,   16,   17,   18,   19,   20,   20,   21,
-       20,   22,   20,   20,   20,   23,   20,   24,   28,   28,
-       29,   29,   34,   39,   39,   30,   30,   40,   38,   43,
-       40,   40,   42,   30,   41,   38,   25,   37,   36,   35,
-       33,   32,   31,   27,   26,   25,   44,    3,   44,   44,
-       44,   44,   44,   44,   44,   44,   44,   44,   44,   44,
-       44,   44,   44,   44,   44,   44,   44,   44,   44,   44,
-       44,   44,   44,   44,   44,   44
+       20,   22,   20,   20,   20,   23,   20,   24,   28,   34,
+       29,   34,   28,   34,   29,   30,   40,   40,   36,   30,
+       41,   37,   34,   39,   44,   34,   42,   35,   30,   43,
+       34,   34,   34,   41,   41,   34,   34,   39,   45,   25,
+       38,   34,   33,   32,   31,   27,   26,   25,   46,    3,
+       46,   46,   46,   46,   46,   46,   46,   46,   46,   46,
+       46,   46,   46,   46,   46,   46,   46,   46,   46,   46,
+       46,   46,   46,   46,   46,   46,   46,   46
+
     } ;
 
-static const flex_int16_t yy_chk[87] =
+static const flex_int16_t yy_chk[99] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,   16,   29,
-       16,   29,   45,   30,   30,   16,   29,   30,   38,   42,
-       40,   39,   36,   38,   35,   28,   25,   24,   23,   22,
-       19,   18,   17,    9,    7,    5,    3,   44,   44,   44,
-       44,   44,   44,   44,   44,   44,   44,   44,   44,   44,
-       44,   44,   44,   44,   44,   44,   44,   44,   44,   44,
-       44,   44,   44,   44,   44,   44
+        1,    1,    1,    1,    1,    1,    1,    1,   16,   22,
+       16,   23,   29,   37,   29,   16,   30,   30,   22,   29,
+       30,   23,   36,   39,   37,   44,   48,   47,   39,   36,
+       45,   43,   42,   41,   40,   35,   34,   28,   44,   25,
+       24,   20,   19,   18,   17,    9,    7,    5,    3,   46,
+       46,   46,   46,   46,   46,   46,   46,   46,   46,   46,
+       46,   46,   46,   46,   46,   46,   46,   46,   46,   46,
+       46,   46,   46,   46,   46,   46,   46,   46
+
     } ;
 
 /* Table of booleans, true if rule could match eol. */
@@ -499,14 +503,16 @@ char *yytext;
 /* analisador léxico */
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "calc.tab.h"
-#define M 100
-extern int convertVarToNumber(char *var);
 
-int inicializado = 1;
-// Struct com código hash e o valor 
+#define M 10000
+
+int inicializado = 0;
+// Struct da tabela hash 
 typedef struct{
     int codigo;
+    char *identificador;
     float valor;
 }Simbolos;
 
@@ -519,40 +525,88 @@ extern void inicializarTabela(){
     for(i = 0; i < M; i++)
         tabelaHash[i].codigo = -1;
 }
+// Inicializa a tabela apenas uma vez, impossibilitando perca de dados
+extern void init(){
+    if (inicializado == 0){ 
+        inicializarTabela();
+        inicializado = 1;
+    }
+}
 
 // Função de espalhamento (resto da divisão da chave por M)
 extern int gerarCodigoHash(int chave){
     return chave % M;
 }
-
-// Função para ler e retornar um item armazenado
-extern Simbolos lerSimb(int var, float valor){
-    Simbolos p;
-    p.codigo = var;
-    p.valor = valor;
-    return p;
+// Converte a variável em um valor
+extern int stringToNumber(char *var){
+    int tam = strlen(var);
+    int codigo = 0;
+    for (int i=0; i<tam; i++)
+      codigo = codigo + var[i]%M;
+    return codigo;
 }
+// Converte o yytext antes que ele mude o valor
+char * strcpy(char *var){
+
+    char * String = (char *) malloc (sizeof(char)*(strlen(var)+1));
+
+    for (int i = 0; i < strlen(var); i++) String[i] = var[i];
+
+    return yylval.var = String;
+}
+
+// Verifica se a variável armazenada é igual a variável pesquisada
+extern int iguais(char *a, char *b){
+    int lenA = strlen(a);
+    int lenB = strlen(b);
+    int iguais = 1;
+    if (lenA == lenB){
+        for (int i = 0; i < lenA; i++){
+            if (a[i] != b[i]){
+                iguais = 0;
+                break;
+            }
+        }
+        return iguais;
+    }else{
+        return 0;
+    }
+} 
 
 // inserir uma item na tabela
-extern void inserir(int var, float valor){
-    Simbolos simb = lerSimb(var, valor);
-    int indice = gerarCodigoHash(simb.codigo);
-    tabelaHash[indice] = simb;
+extern void inserir(char *n, int m){
+    Simbolos p;
+    p.codigo = stringToNumber(n);
+    p.identificador = n;
+    p.valor = m;
+    int indice = gerarCodigoHash(p.codigo);
+    while(tabelaHash[indice].codigo != -1){
+        if (iguais(tabelaHash[indice].identificador, n) == 1){
+            break;
+        }
+        indice = gerarCodigoHash(indice + 1);
+    }
+    tabelaHash[indice] = p;
 }
 
+
 // Buscar um item na tabela
-extern Simbolos* buscar(int chave){
+extern Simbolos* buscar(char *n){
+    
+    int chave = stringToNumber(n);
     int indice = gerarCodigoHash(chave);
     while(tabelaHash[indice].codigo != -1){
-        if(tabelaHash[indice].codigo == chave)
+        if(tabelaHash[indice].codigo == chave && iguais(tabelaHash[indice].identificador, n) == 1){
             return &tabelaHash[indice];
-        else
+        }
+        else{
             indice = gerarCodigoHash(indice + 1);
+        }
     }
     return NULL;
 }
 
-#line 556 "lex.yy.c"
+#line 610 "lex.yy.c"
 /* DEFINIÇÕES  */
 /* Espaço em banco */
 /* Digito */
@@ -561,7 +615,7 @@ extern Simbolos* buscar(int chave){
 /* Número Real */
 /* Variável */
 /* REGRAS */
-#line 565 "lex.yy.c"
+#line 619 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -778,10 +832,10 @@ YY_DECL
 		}
 
 	{
-#line 80 "calc.l"
+#line 133 "calc.l"
 
 
-#line 785 "lex.yy.c"
+#line 839 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -808,13 +862,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 45 )
+				if ( yy_current_state >= 47 )
 					yy_c = yy_meta[yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 58 );
+		while ( yy_base[yy_current_state] != 70 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -850,139 +904,139 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 82 "calc.l"
+#line 135 "calc.l"
 { }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 83 "calc.l"
+#line 136 "calc.l"
 { 
-
+    
     yylval.digit = atof(yytext); 
     return NUM; 
 }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 89 "calc.l"
+#line 142 "calc.l"
 { 
-
-    convertVarToNumber(yytext);
+    init();
+    strcpy(yytext);
     return VAR;
 }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 95 "calc.l"
+#line 148 "calc.l"
 return PLUS; 
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 96 "calc.l"
+#line 149 "calc.l"
 return MINUS; 
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 97 "calc.l"
+#line 150 "calc.l"
 return TIMES; 
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 98 "calc.l"
+#line 151 "calc.l"
 return DIVIDE; 
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 100 "calc.l"
+#line 153 "calc.l"
 return LOG; 
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 101 "calc.l"
+#line 154 "calc.l"
 return RAIZ;
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 103 "calc.l"
+#line 156 "calc.l"
 return POW; 
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 105 "calc.l"
+#line 158 "calc.l"
 return AND; 
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 106 "calc.l"
+#line 159 "calc.l"
 return OR; 
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 107 "calc.l"
+#line 160 "calc.l"
 return XOR; 
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 108 "calc.l"
+#line 161 "calc.l"
 return NEG;
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 110 "calc.l"
+#line 163 "calc.l"
 return MAIOR; 
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 111 "calc.l"
+#line 164 "calc.l"
 return MENOR; 
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 112 "calc.l"
+#line 165 "calc.l"
 return MAIORIGUAL; 
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 113 "calc.l"
+#line 166 "calc.l"
 return MENORIGUAL; 
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 114 "calc.l"
+#line 167 "calc.l"
 return DIFERENTE; 
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 116 "calc.l"
+#line 169 "calc.l"
 return IGUAL; 
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 118 "calc.l"
+#line 171 "calc.l"
 return ATRIBUICAO; 
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 120 "calc.l"
+#line 173 "calc.l"
 return LEFT; 
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 121 "calc.l"
+#line 174 "calc.l"
 return RIGHT; 
 	YY_BREAK
 case 24:
 /* rule 24 can match eol */
 YY_RULE_SETUP
-#line 123 "calc.l"
+#line 176 "calc.l"
 return END; 
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 124 "calc.l"
+#line 177 "calc.l"
 ECHO;
 	YY_BREAK
-#line 986 "lex.yy.c"
+#line 1040 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1279,7 +1333,7 @@ static int yy_get_next_buffer (void)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 45 )
+			if ( yy_current_state >= 47 )
 				yy_c = yy_meta[yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
@@ -1307,11 +1361,11 @@ static int yy_get_next_buffer (void)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 45 )
+		if ( yy_current_state >= 47 )
 			yy_c = yy_meta[yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
-	yy_is_jam = (yy_current_state == 44);
+	yy_is_jam = (yy_current_state == 46);
 
 		return yy_is_jam ? 0 : yy_current_state;
 }
@@ -1999,55 +2053,6 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 124 "calc.l"
-
-
-int convertVarToNumber(char *var){
-    Simbolos *p;
-    /* Impedindo que a tabela seja iniciada mais de uma vez */
-    if (inicializado == 1) {
-        inicializarTabela();
-        inicializado = 0;
-    };
-
-    int cont = 0;
-    float codigoVar = 1;
-    int variacao = 0;
-
-    while(1){
-        if (var[cont] >= 65 && var[cont] <= 90){ //Verifica se está no intervalo das maiúsculas
-            if (variacao == 0){ // Se for 0 multiplica o valor ascii do símbolo atual
-                codigoVar = codigoVar * var[cont];
-                cont = cont + 1;
-                
-            }else{// Não sendo 0 divide o valor ascii do símbolo atual
-                codigoVar = codigoVar / var[cont];
-                cont = cont + 1;
-            }
-            // Faz a troca entre multiplicação e divisão
-            variacao = !variacao;
-
-        }else if (var[cont] >= 97 && var[cont] <= 122){ //Verifica se está no intervalo das minúsculas
-            if (variacao == 0){ // Se for 0 multiplica o valor ascii do símbolo atual
-                codigoVar = codigoVar * var[cont];
-                cont = cont + 1;
-                
-            }else{// Não sendo 0 divide o valor ascii do símbolo atual
-                codigoVar = codigoVar / var[cont];
-                cont = cont + 1;
-            }
-            // Faz a troca entre multiplicação e divisão
-            variacao = !variacao;
-            
-        }else{ // Encerra o laço no fim da leitura da cadeia
-            break;
-        }
-         
-    };
-
-    yylval.var = codigoVar;
-    return yylval.var;
-    
-};
+#line 177 "calc.l"
 
 

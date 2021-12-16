@@ -77,10 +77,10 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 19 "calc.y" /* yacc.c:1909  */
+#line 20 "calc.y" /* yacc.c:1909  */
 
 	double digit;
-	float var;
+	char *var;
 
 #line 86 "calc.tab.h" /* yacc.c:1909  */
 };

@@ -8,17 +8,18 @@ extern int yylex (void);
 
 typedef struct{
     int codigo;
+    char *indentficador;
     float valor;
 }Simbolos;
 
-extern void inserir(int var, float valor);
-extern Simbolos* buscar(int chave);
+extern void inserir(char *n, int m);
+extern Simbolos* buscar(char *n);
 
 %}
 
 %union {
 	double digit;
-	float var;
+	char *var;
 }
 
 %token <var> VAR
@@ -75,15 +76,14 @@ Expression: Expression PLUS Expression	{ $$ = $1 + $3;};
 	| LEFT Expression RIGHT			{ $$ = $2; }
 	
 /* VARIÁVEIS DE [a-zA-Z] */
-	| VAR		{  
+	| VAR		{
 		Simbolos *p;
-		
 		p = buscar($1);
 
         if(p)
             $$ = p->valor;
         else
-            printf("\nVariavel nao encontrada!\n");
+            printf("\nVariavel inexistente na tabela!\n");
 	}
 /* NÚMERO */
 	| NUM	    { $$ = $1; };
