@@ -88,7 +88,6 @@ extern void inserir(char *n, int m){
     tabelaHash[indice] = p;
 }
 
-
 // Buscar um item na tabela
 extern Simbolos* buscar(char *n){
     
@@ -150,8 +149,8 @@ variavel {caracteres}+{varnum}*
 "*" return TIMES; 
 "/" return DIVIDE; 
 
-"log" return LOG; 
-"sqrt" return RAIZ;
+"?" return LOG; 
+"$" return RAIZ;
 
 "^" return POW; 
 
